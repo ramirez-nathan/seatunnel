@@ -15,19 +15,6 @@
  * limitations under the License.
  */
 
-package org.apache.seatunnel.connectors.seatunnel.syslog;
+package org.apache.seatunnel.connectors.seatunnel.syslog.config;
 
-import org.apache.seatunnel.api.source.Boundedness;
-import org.apache.seatunnel.api.source.Collector;
-import org.apache.seatunnel.api.table.type.SeaTunnelRow;
-import org.apache.seatunnel.connectors.seatunnel.common.source.AbstractSingleSplitReader;
-import org.apache.seatunnel.connectors.seatunnel.common.source.SingleSplitReaderContext;
-
-
-import lombok.extern.slf4j.Slf4j;
-import org.apache.seatunnel.api.table.type.SeaTunnelRow;
-
-@Slf4j
-public class SyslogSourceReader {
-
-}
+public class SyslogSourceOptions extends SyslogCommonOptions {}

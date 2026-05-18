@@ -58,6 +58,8 @@ public class SocketClient {
         outputStream = client.getOutputStream();
     }
 
+
+    // opens socket
     public void open() throws IOException {
         try {
             synchronized (SocketClient.class) {
@@ -71,6 +73,7 @@ public class SocketClient {
         }
     }
 
+    //
     public void write(SeaTunnelRow row) throws IOException {
         byte[] msg = serializationSchema.serialize(row);
         try {

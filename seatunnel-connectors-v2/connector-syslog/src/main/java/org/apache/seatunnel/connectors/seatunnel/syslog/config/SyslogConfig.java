@@ -15,21 +15,23 @@
  * limitations under the License.
  */
 
-package org.apache.seatunnel.connectors.seatunnel.syslog;
+package org.apache.seatunnel.connectors.seatunnel.syslog.config;
 
-import org.apache.seatunnel.api.configuration.util.OptionRule;
-import org.apache.seatunnel.api.source.SeaTunnelSource;
-import org.apache.seatunnel.api.source.SourceSplit;
-import org.apache.seatunnel.api.table.connector.TableSource;
-import org.apache.seatunnel.api.table.factory.Factory;
-import org.apache.seatunnel.api.table.factory.TableSourceFactory;
-import org.apache.seatunnel.api.table.factory.TableSourceFactoryContext;
+import org.apache.seatunnel.api.configuration.ReadonlyConfig;
 
-import com.google.auto.service.AutoService;
+import lombok.Data;
 
 import java.io.Serializable;
 
-@AutoService(Factory.class)
-public class SyslogSourceFactory {
+@Data
+public class SyslogConfig implements Serializable {
+    private String host;
+    private int port;
+    private int maxNumRetries;
 
+    public SyslogConfig(ReadonlyConfig config) {
+        this.host = config.get(SyslogCommonOptions.HOST);
+        this.port = config.get(SyslogCommonOptions.PORT);
+        //this.maxNumRetries = config.get(SyslogSinkOptions.MAX_RETRIES);
+    }
 }
